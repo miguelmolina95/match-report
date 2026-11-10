@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "match-report-mcp"
+version = "0.1.0"
+description = "MCP server for football match reports (passing networks, shot maps, xG race) from StatsBomb Open Data"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+keywords = ["mcp", "football", "soccer", "statsbomb", "xg", "analytics"]
+dependencies = [
+    "mcp>=1.2",
+    "requests>=2.31",
+    "matplotlib>=3.8",
+    "mplsoccer>=1.2",
+]
+
+[project.scripts]
+match-report-mcp = "match_report_mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/match_report_mcp"]
